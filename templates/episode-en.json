@@ -1,0 +1,39 @@
+{
+ "format": "monoradio/news-1",
+ "date": "YYYY-MM-DD",
+ "lang": "en",
+ "title": "[Episode title]",
+ "opening": [
+  {"say": "Good morning, this is Otsu Radio. [text to be read aloud]", "show": "Good morning, this is Otsu Radio. [subtitle text]"},
+  {"say": "Today we have [N] stories.", "show": "Today we have [N] stories."}
+ ],
+ "news": [
+  {
+   "label": "[Short headline]",
+   "points": ["[Point 1]", "[Point 2]"],
+   "url": "[Source URL (one you have checked exists)]",
+   "lines": [
+    {"say": "[Spoken line 1]", "show": "[Spoken line 1]"},
+    {"say": "[Spoken line 2]", "show": "[Spoken line 2]"}
+   ],
+   "details": ["[Detail for point 1]", "[Detail for point 2 (null if none)]"],
+   "link": {
+    "url": "[Source URL]",
+    "title": "[Article title]",
+    "site": "[Site name]",
+    "description": "[Article description (OGP description)]",
+    "image": "[Article OGP image URL (do not save the image; URL only)]",
+    "icon": null
+   }
+  }
+ ],
+ "closing": [
+  {"say": "Today's pick is [story]. [One-line comment]", "show": "Today's pick is [story]. [One-line comment]"},
+  {"say": "See you next time on Otsu Radio.", "show": "See you next time on Otsu Radio."}
+ ],
+ "highlight": 0,
+ "seconds": 0,
+ "lines_timed": [],
+ "segments": [],
+ "made_at": "YYYY-MM-DDTHH:MM:SS"
+}
