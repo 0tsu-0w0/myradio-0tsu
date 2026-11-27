@@ -21,6 +21,7 @@ episodes/            台本（<日付>-ja.json / -en.json）
 audio/               声（mp3。main にはコミットしない）
 character/           キャスター（キャラの画像）
 templates/           台本のひな形と、お手本の回
+tools/voice.py       台本から声（VOICEVOX）とタイミングを作る
 tools/publish.sh     GitHub Pages への公開（gh-pages ブランチ）
 docs/formats.md      JSON の形
 AGENTS.md            AI に局の運用を頼むときの説明

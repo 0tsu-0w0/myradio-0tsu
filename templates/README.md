@@ -13,11 +13,18 @@
    - `say` は読み上げ用（英字・数字は読みをカタカナやひらがなに）、`show` は字幕用（ふつうの表記）。
    - ニュースごとに出典 `url` を必ず付ける。事実は出典に書いてあることだけ。
    - リンクカードの `image` は、記事のサイトが出している OGP 画像の URL を書くだけにする（画像は保存しない）。
-2. **声を作る**：VOICEVOX（春日部つむぎ）で、台本の `say` を順に読み上げ、1 本の mp3 にする。`audio/<日付>-ja.mp3` に置く（git には入れない）。
-3. **タイミングを書く**：声の長さに合わせて、台本の `seconds`、`lines_timed`（文ごとの `start`/`end`/`show`/`part`）、`segments`（opening / news / closing の区切り）を埋める。食い違うと字幕やスライドがずれる。形は [docs/formats.md](../docs/formats.md)。
-4. **一覧に足す**：`episodes.json` の先頭に、その回を足す。
-   `{"date": "<日付>", "ja": {"title": "…", "seconds": 90.0}, "en": {"title": "…", "seconds": 90.0}}`
-5. **コミットして公開**：台本と `episodes.json` を main にコミットして push し、`tools/publish.sh` を実行する。
+2. **声とタイミングを作る**：VOICEVOX を起動して、次を実行する。
+
+   ```
+   python tools/voice.py episodes/<日付>-ja.json
+   ```
+
+   - 春日部つむぎ（話者 8）で `say` を順に読み上げ、`audio/<日付>-ja.mp3` を作る（git には入れない）
+   - 台本の `seconds`・`lines_timed`・`segments`・`made_at` を、声に合わせて書き直す
+   - `episodes.json` に、その回の題と長さを入れる
+   - mp3 にするには ffmpeg（または `pip install lameenc`）が要る。ないときは wav で書く
+   - 話す速さは `--speed 1.1` など。台本を直したら、もう一度実行すればよい
+3. **コミットして公開**：台本と `episodes.json` を main にコミットして push し、`tools/publish.sh` を実行する。
 
 ## メモ
 - 声の利用規約（VOICEVOX:春日部つむぎ）に従い、クレジットは `station.json` に入っています。消さないでください。
